@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\kanbanboard\kanbanboard\obj\Debug\net8.0-windows\
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\
 kanbanboard
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\kanbanboard\kanbanboard\App.xaml
-11407045341
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\App.xaml
+2-1974446672
 
-4-1358643218
+5-269836129
 212-1424880963
-MainWindow.xaml;
+AddTask.xaml;MainWindow.xaml;
 
 False
 

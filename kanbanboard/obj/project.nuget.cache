@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e9EMaPA9+DI=",
+  "dgSpecHash": "bEOcnBw0pZA=",
   "success": true,
-  "projectFilePath": "C:\\kanbanboard\\kanbanboard\\kanbanboard.csproj",
+  "projectFilePath": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\kanbanboard.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dawid\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.2\\microsoft.entityframeworkcore.8.0.2.nupkg.sha512",
     "C:\\Users\\Dawid\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.2\\microsoft.entityframeworkcore.abstractions.8.0.2.nupkg.sha512",

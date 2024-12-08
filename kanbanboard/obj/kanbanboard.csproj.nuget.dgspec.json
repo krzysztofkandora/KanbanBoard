@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\kanbanboard\\kanbanboard\\kanbanboard.csproj": {}
+    "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\kanbanboard.csproj": {}
   },
   "projects": {
-    "C:\\kanbanboard\\kanbanboard\\kanbanboard.csproj": {
+    "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\kanbanboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\kanbanboard\\kanbanboard\\kanbanboard.csproj",
+        "projectUniqueName": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\kanbanboard.csproj",
         "projectName": "kanbanboard",
-        "projectPath": "C:\\kanbanboard\\kanbanboard\\kanbanboard.csproj",
+        "projectPath": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\kanbanboard.csproj",
         "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "C:\\kanbanboard\\kanbanboard\\obj\\",
+        "outputPath": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

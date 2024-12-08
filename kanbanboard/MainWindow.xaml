@@ -3,10 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Kanban Board" Height="600" Width="800">
     <Grid>
-        <DataGrid x:Name="KanbanDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                
-                <DataGridTemplateColumn Header="Nowe" Width="*">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+    <!-- Panel z przyciskami w górnej części -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" >
+            <Button Content="Odśwież" Width="100" Margin="5" Click="RefreshButton_Click" />
+            <Button Content="Dodaj zadanie" Width="100" Margin="5" Click="AddTask_Click"/>
+            <Button Content="Usuń zadanie" Width="100" Margin="5"  />
+            <Button Content="Wyloguj" Width="100" Margin="5"  />
+        </StackPanel>
+        
+        <DataGrid x:Name="KanbanDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid.Columns>
+
+            <DataGridTemplateColumn Header="Nowe" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ItemsControl ItemsSource="{Binding Nowe}">
@@ -16,6 +29,7 @@
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
                                                 <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
                                             </StackPanel>
                                         </Border>
@@ -36,6 +50,7 @@
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
                                                 <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
                                             </StackPanel>
                                         </Border>
@@ -56,6 +71,7 @@
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
                                                 <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
                                             </StackPanel>
                                         </Border>
@@ -75,6 +91,7 @@
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
                                                 <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
                                             </StackPanel>
                                         </Border>
@@ -94,6 +111,7 @@
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
                                                 <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
                                             </StackPanel>
                                         </Border>

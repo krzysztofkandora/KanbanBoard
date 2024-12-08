@@ -88,5 +88,32 @@ namespace kanbanboard
                 // Implementacja edycji zadania.
             }
         }
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoadKanbanData();
+        }
+        private void AddTask_Click(object sender, RoutedEventArgs e)
+        {
+            var addTaskWindow = new AddTaskWindow();
+            if (addTaskWindow.ShowDialog() == true)
+            {
+                // Pobierz nowe zadanie
+                var newTask = addTaskWindow.NewTask;
+
+                if (newTask != null)
+                {
+                    // Dodaj nowe zadanie do bazy danych
+                    _dbContext.Zadania.Add(newTask);
+                    _dbContext.SaveChanges();
+
+                    // Odśwież widok
+                    LoadKanbanData();
+                    MessageBox.Show("Dodano nowe zadanie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
+
+
     }
+
 }
