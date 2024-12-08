@@ -1,0 +1,109 @@
+﻿<Window x:Class="kanbanboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kanban Board" Height="600" Width="800">
+    <Grid>
+        <DataGrid x:Name="KanbanDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                
+                <DataGridTemplateColumn Header="Nowe" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Nowe}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding title}" FontWeight="Bold"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Zaplanowane" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Zaplanowane}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding title}" FontWeight="Bold"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="W trakcie" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding WTrakcie}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding title}" FontWeight="Bold"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Testowanie" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Testowanie}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding title}" FontWeight="Bold"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Ukończone" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Ukonczone}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding title}" FontWeight="Bold"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
