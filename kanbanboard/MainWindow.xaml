@@ -12,10 +12,9 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" >
             <Button Content="Odśwież" Width="100" Margin="5" Click="RefreshButton_Click" />
             <Button Content="Dodaj zadanie" Width="100" Margin="5" Click="AddTask_Click"/>
-            <Button Content="Usuń zadanie" Width="100" Margin="5"  />
+            <Button Content="Usuń zadanie" Width="100" Margin="5"  Click="DeleteTaskMenu_Click"/>
             <Button Content="Wyloguj" Width="100" Margin="5"  />
         </StackPanel>
-        
         <DataGrid x:Name="KanbanDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
         <DataGrid.Columns>
 
@@ -28,9 +27,10 @@
                                         <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
-                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" MaxHeight="80"   />
                                                 <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                                <Button Content="Szczegóły" Click="ShowTaskDetails_Click" CommandParameter="{Binding}"/>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
@@ -49,9 +49,10 @@
                                         <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
-                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" MaxHeight="80"   />
                                                 <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                                <Button Content="Szczegóły" Click="ShowTaskDetails_Click" CommandParameter="{Binding}" />
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
@@ -70,9 +71,10 @@
                                         <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
-                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" MaxHeight="80"   />
                                                 <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                                <Button Content="Szczegóły" Click="ShowTaskDetails_Click" CommandParameter="{Binding}"/>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
@@ -90,9 +92,10 @@
                                         <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
-                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" MaxHeight="80"  />
                                                 <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                                <Button Content="Szczegóły" Click="ShowTaskDetails_Click" CommandParameter="{Binding}"/>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
@@ -110,9 +113,10 @@
                                         <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5">
                                             <StackPanel>
                                                 <TextBlock Text="{Binding title}" FontWeight="Bold"/>
-                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"/>
+                                                <TextBlock Text="{Binding description}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" MaxHeight="80"/>
                                                 <TextBlock Text="{Binding assigned_user}"/>
                                                 <Button Content="Edytuj" Margin="5" Click="EditTask_Click"/>
+                                                <Button Content="Szczegóły" Click="ShowTaskDetails_Click" CommandParameter="{Binding}"/>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>

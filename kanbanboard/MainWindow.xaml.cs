@@ -16,7 +16,11 @@ using System.ComponentModel.DataAnnotations;
 namespace kanbanboard
 {
 
-
+    public class Uzytkownik
+    {
+        [Key]
+        public string login { get; set; }
+    }
     public class Karta
     {
         [Key]   //oznacenie klucza
@@ -32,6 +36,7 @@ namespace kanbanboard
     public class KanbanDbContext : DbContext
     {
         public DbSet<Karta> Zadania { get; set; }
+        public DbSet<Uzytkownik> users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //haslo w plain text do zmainy
@@ -80,13 +85,19 @@ namespace kanbanboard
         private void EditTask_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            var karta = button.DataContext as Karta;
+            var task = button.DataContext as Karta;
 
-            if (karta != null)
+            if (task == null)
             {
-                MessageBox.Show($"Edytowanie zadania: {karta.title}");
-                // Implementacja edycji zadania.
+                MessageBox.Show("Nie wybrano zadania do edycji.");
+                return;
             }
+
+            var editTaskWindow = new EditTaskWindow(task);
+            editTaskWindow.ShowDialog();
+
+            // Odśwież dane po zamknięciu okna
+            LoadKanbanData();
         }
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
@@ -97,20 +108,43 @@ namespace kanbanboard
             var addTaskWindow = new AddTaskWindow();
             if (addTaskWindow.ShowDialog() == true)
             {
-                // Pobierz nowe zadanie
+                // Wyświetl okno do wprowdzenia danych
                 var newTask = addTaskWindow.NewTask;
 
                 if (newTask != null)
                 {
-                    // Dodaj nowe zadanie do bazy danych
+                    // Dodaj  do bazy danych
                     _dbContext.Zadania.Add(newTask);
                     _dbContext.SaveChanges();
 
-                    // Odśwież widok
+                    // Odświerzanie widoku oraz potwierdzenie dodania 
                     LoadKanbanData();
                     MessageBox.Show("Dodano nowe zadanie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
+        }
+        private void ShowTaskDetails_Click(object sender, RoutedEventArgs e)
+        {
+            // Pobierz zadanie z CommandParameter
+            var button = sender as Button;
+            if (button?.CommandParameter is Karta selectedTask)
+            {
+                // Otwórz okno szczegółów zadania
+                var taskDetailsWindow = new TaskDetailsWindow(selectedTask);
+                taskDetailsWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nie udało się otworzyć szczegółów zadania.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void DeleteTaskMenu_Click(object sender, RoutedEventArgs e)
+        {
+            var deleteTaskWindow = new DeleteTaskWindow();
+            deleteTaskWindow.ShowDialog();
+
+            // Po zamknięciu okna odśwież widok z zadaniami
+            LoadKanbanData();
         }
 
 

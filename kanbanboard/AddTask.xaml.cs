@@ -6,39 +6,45 @@ namespace kanbanboard
 {
     public partial class AddTaskWindow : Window
     {
+        private KanbanDbContext _dbContext;
         public Karta NewTask { get; private set; }
-
         public AddTaskWindow()
         {
             InitializeComponent();
+            _dbContext = new KanbanDbContext();
+            LoadUsers();
+            StatusComboBox.SelectedIndex = 0; // Ustaw domyślny status
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void LoadUsers()
         {
-            // Pobierz dane z formularza
-            string title = TitleTextBox.Text;
-            string description = DescriptionTextBox.Text;
-            string status = (StatusComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            var users = _dbContext.users.ToList();
+            UserComboBox.ItemsSource = users;
+        }
 
-            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(status))
+        private void AddTaskButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedUser = UserComboBox.SelectedItem as Uzytkownik;
+            var selectedStatus = (StatusComboBox.SelectedItem as ComboBoxItem)?.Tag.ToString();
+
+            if (string.IsNullOrWhiteSpace(TaskTitleTextBox.Text) || selectedUser == null || string.IsNullOrEmpty(selectedStatus))
             {
-                MessageBox.Show("Tytuł i status są wymagane.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Proszę uzupełnić wszystkie pola.");
                 return;
             }
 
-            // Utwórz nowe zadanie
             NewTask = new Karta
             {
-                title = title,
-                description = description,
+                title = TaskTitleTextBox.Text,
+                description = TaskDescriptionTextBox.Text,
                 creation_date = DateTime.Now,
-                assigned_user = "Nieprzypisany", // Dodać wybór użytkownika 
-                Status = status
+                assigned_user = $"{selectedUser.login}",
+                Status = selectedStatus
             };
 
-            // Zamknij okno
-            DialogResult = true;
-            Close();
+            DialogResult = true; // Ustaw wartość zwracaną okna na true
+            this.Close();
         }
+
     }
 }

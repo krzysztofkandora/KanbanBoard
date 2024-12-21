@@ -10,12 +10,30 @@
     <Compile Update="AddTask.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DeleteTaskWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditTaskWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TaskDetailsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="DeleteTaskWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditTaskWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AddTask.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TaskDetailsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

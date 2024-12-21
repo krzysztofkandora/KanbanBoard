@@ -81,3 +81,9 @@ C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboa
 C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\ref\kanbanboard.dll
 C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\AddTask.baml
 C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\AddTask.g.cs
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\EditTaskWindow.baml
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\EditTaskWindow.g.cs
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\TaskDetailsWindow.baml
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\TaskDetailsWindow.g.cs
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\DeleteTaskWindow.baml
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\DeleteTaskWindow.g.cs
