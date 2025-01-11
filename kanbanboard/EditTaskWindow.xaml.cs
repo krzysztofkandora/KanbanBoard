@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace kanbanboard
 {
-    public partial class EditTaskWindow : Window
+    public partial class EditTaskWindow : Window, LuSchZadania
     {
         private KanbanDbContext _dbContext;
         private Karta taskToEdit;
@@ -29,25 +19,20 @@ namespace kanbanboard
             PopulateFields();
         }
 
-        private void LoadUsers()
+
+        public void LoadUsers()
         {
             var users = _dbContext.users.ToList();
             UserComboBox.ItemsSource = users;
         }
 
-        private void PopulateFields()
-        {
-            TaskTitleTextBox.Text = taskToEdit.title;
-            TaskDescriptionTextBox.Text = taskToEdit.description;
-            UserComboBox.SelectedItem = _dbContext.users.FirstOrDefault(u => u.login == taskToEdit.assigned_user);
-            StatusComboBox.SelectedItem = StatusComboBox.Items.Cast<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == taskToEdit.Status);
-        }
 
-        private void SaveChangesButton_Click(object sender, RoutedEventArgs e)
+        public void SaveChanges()
         {
             var selectedUser = UserComboBox.SelectedItem as Uzytkownik;
             var selectedStatus = (StatusComboBox.SelectedItem as ComboBoxItem)?.Tag.ToString();
 
+            // Walidacja danych
             if (string.IsNullOrWhiteSpace(TaskTitleTextBox.Text) || selectedUser == null || string.IsNullOrEmpty(selectedStatus))
             {
                 MessageBox.Show("Proszę uzupełnić wszystkie pola.");
@@ -60,11 +45,34 @@ namespace kanbanboard
             taskToEdit.assigned_user = selectedUser.login;
             taskToEdit.Status = selectedStatus;
 
+            // Zapisanie zmian w bazie danych
             _dbContext.Zadania.Update(taskToEdit);
             _dbContext.SaveChanges();
 
-            MessageBox.Show("Zadanie zostało zaktualizowane.");
-            this.Close();
+            MessageBox.Show("Zadanie zostało zaktualizowane.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            // Ustawienie DialogResult na true, aby poinformować o sukcesie
+            DialogResult = true;
+            this.Close(); // Zamknięcie okna
+        }
+
+
+        private void PopulateFields()
+        {
+            TaskTitleTextBox.Text = taskToEdit.title;
+            TaskDescriptionTextBox.Text = taskToEdit.description;
+
+            // Ustawienie wybranego użytkownika
+            UserComboBox.SelectedItem = _dbContext.users.FirstOrDefault(u => u.login == taskToEdit.assigned_user);
+
+            // Ustawienie wybranego statusu
+            StatusComboBox.SelectedItem = StatusComboBox.Items.Cast<ComboBoxItem>()
+                .FirstOrDefault(item => item.Content.ToString() == taskToEdit.Status);
+        }
+
+        private void SaveChangesButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveChanges(); // Wywołanie metody z interfejsu
         }
     }
 }

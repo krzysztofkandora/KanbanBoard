@@ -13,7 +13,6 @@
             <Button Content="Odśwież" Width="100" Margin="5" Click="RefreshButton_Click" />
             <Button Content="Dodaj zadanie" Width="100" Margin="5" Click="AddTask_Click"/>
             <Button Content="Usuń zadanie" Width="100" Margin="5"  Click="DeleteTaskMenu_Click"/>
-            <Button Content="Wyloguj" Width="100" Margin="5"  />
         </StackPanel>
         <DataGrid x:Name="KanbanDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
         <DataGrid.Columns>

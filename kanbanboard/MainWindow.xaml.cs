@@ -1,61 +1,98 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql;
-using System.ComponentModel.DataAnnotations;
 
 namespace kanbanboard
 {
-
-    public class Uzytkownik
+    public interface LuSchZadania
     {
-        [Key]
-        public string login { get; set; }
+        void LoadUsers();   // Ładowanie użytkowników
+        void SaveChanges(); // Zapisanie zmian w zadaniu
     }
-    public class Karta
+    public interface ITaskAction
     {
-        [Key]   //oznacenie klucza
-        public int task_id { get; set; }
-        public string title { get; set; }
-        public string description { get; set; }
-        public DateTime creation_date { get; set; }
-        public string assigned_user { get; set; }
-        public string Status { get; set; }
+        void Execute(object parameter);
     }
 
-    // łączenie się z bazą danych
-    public class KanbanDbContext : DbContext
+    // Base class for task actions, implementing ITaskAction
+    public abstract class TaskActionBase : ITaskAction
     {
-        public DbSet<Karta> Zadania { get; set; }
-        public DbSet<Uzytkownik> users { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected KanbanDbContext DbContext { get; private set; }
+
+        public TaskActionBase()
         {
-            //haslo w plain text do zmainy
-            const string polaczenieSQL = "server=127.0.0.1;database=kanbanboard;user=kanbanboard;password=admin1234";
-            optionsBuilder.UseMySql(polaczenieSQL,ServerVersion.AutoDetect(polaczenieSQL));
+            DbContext = new KanbanDbContext();
+        }
+
+        public abstract void Execute(object parameter);
+    }
+
+    // AddTask class
+    public class AddTask : TaskActionBase
+    {
+        public override void Execute(object parameter)
+        {
+            var addTaskWindow = new AddTaskWindow();
+            if (addTaskWindow.ShowDialog() == true)
+            {
+                var newTask = addTaskWindow.NewTask;
+                if (newTask != null)
+                {
+                    DbContext.Zadania.Add(newTask);
+                }
+            }
         }
     }
-    //klasy do grupowania zadań 
-    public class KanbanBoard
+
+    // EditTask class
+    public class EditTask : TaskActionBase
     {
-        public List<Karta> Nowe { get; set; }
-        public List<Karta> Zaplanowane { get; set; }
-        public List<Karta> WTrakcie { get; set; }
-        public List<Karta> Testowanie { get; set; }
-        public List<Karta> Ukonczone { get; set; }
+        public override void Execute(object parameter)
+        {
+            if (parameter is Karta task)
+            {
+                var editTaskWindow = new EditTaskWindow(task);
+                editTaskWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano zadania do edycji.");
+            }
+        }
     }
 
+    // ShowTaskDetails class
+    public class ShowTaskDetails : TaskActionBase
+    {
+        public override void Execute(object parameter)
+        {
+            if (parameter is Karta selectedTask)
+            {
+                var taskDetailsWindow = new TaskDetailsWindow(selectedTask);
+                taskDetailsWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nie udało się otworzyć szczegółów zadania.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
 
+    // DeleteTask class
+    public class DeleteTask : TaskActionBase
+    {
+        public override void Execute(object parameter)
+        {
+            var deleteTaskWindow = new DeleteTaskWindow();
+            deleteTaskWindow.ShowDialog();
+        }
+    }
 
+    // MainWindow modifications
     public partial class MainWindow : Window
     {
         private KanbanDbContext _dbContext;
@@ -82,72 +119,77 @@ namespace kanbanboard
             KanbanDataGrid.ItemsSource = new List<KanbanBoard> { kanbanBoard };
         }
 
+        private void ExecuteTaskAction(ITaskAction action, object parameter = null)
+        {
+            action.Execute(parameter);
+            LoadKanbanData();
+        }
+
+        private void AddTask_Click(object sender, RoutedEventArgs e)
+        {
+            ExecuteTaskAction(new AddTask());
+        }
+
         private void EditTask_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            var task = button.DataContext as Karta;
-
-            if (task == null)
-            {
-                MessageBox.Show("Nie wybrano zadania do edycji.");
-                return;
-            }
-
-            var editTaskWindow = new EditTaskWindow(task);
-            editTaskWindow.ShowDialog();
-
-            // Odśwież dane po zamknięciu okna
-            LoadKanbanData();
+            var task = button?.DataContext as Karta;
+            ExecuteTaskAction(new EditTask(), task);
         }
+
+        private void ShowTaskDetails_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var task = button?.CommandParameter as Karta;
+            ExecuteTaskAction(new ShowTaskDetails(), task);
+        }
+
+        private void DeleteTaskMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ExecuteTaskAction(new DeleteTask());
+        }
+
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
             LoadKanbanData();
         }
-        private void AddTask_Click(object sender, RoutedEventArgs e)
-        {
-            var addTaskWindow = new AddTaskWindow();
-            if (addTaskWindow.ShowDialog() == true)
-            {
-                // Wyświetl okno do wprowdzenia danych
-                var newTask = addTaskWindow.NewTask;
-
-                if (newTask != null)
-                {
-                    // Dodaj  do bazy danych
-                    _dbContext.Zadania.Add(newTask);
-                    _dbContext.SaveChanges();
-
-                    // Odświerzanie widoku oraz potwierdzenie dodania 
-                    LoadKanbanData();
-                    MessageBox.Show("Dodano nowe zadanie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-        }
-        private void ShowTaskDetails_Click(object sender, RoutedEventArgs e)
-        {
-            // Pobierz zadanie z CommandParameter
-            var button = sender as Button;
-            if (button?.CommandParameter is Karta selectedTask)
-            {
-                // Otwórz okno szczegółów zadania
-                var taskDetailsWindow = new TaskDetailsWindow(selectedTask);
-                taskDetailsWindow.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Nie udało się otworzyć szczegółów zadania.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        private void DeleteTaskMenu_Click(object sender, RoutedEventArgs e)
-        {
-            var deleteTaskWindow = new DeleteTaskWindow();
-            deleteTaskWindow.ShowDialog();
-
-            // Po zamknięciu okna odśwież widok z zadaniami
-            LoadKanbanData();
-        }
-
-
     }
 
+    public class Uzytkownik
+    {
+        [Key]
+        public string login { get; set; }
+    }
+
+    public class Karta
+    {
+        [Key]
+        public int task_id { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
+        public DateTime creation_date { get; set; }
+        public string assigned_user { get; set; }
+        public string Status { get; set; }
+    }
+
+    public class KanbanBoard
+    {
+        public List<Karta> Nowe { get; set; }
+        public List<Karta> Zaplanowane { get; set; }
+        public List<Karta> WTrakcie { get; set; }
+        public List<Karta> Testowanie { get; set; }
+        public List<Karta> Ukonczone { get; set; }
+    }
+
+    public class KanbanDbContext : DbContext
+    {
+        public DbSet<Karta> Zadania { get; set; }
+        public DbSet<Uzytkownik> users { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            const string connectionString = "server=127.0.0.1;database=kanbanboard;user=kanbanboard;password=admin1234";
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        }
+    }
 }

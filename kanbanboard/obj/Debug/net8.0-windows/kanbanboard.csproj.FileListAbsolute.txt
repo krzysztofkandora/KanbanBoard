@@ -87,3 +87,5 @@ C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboa
 C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\TaskDetailsWindow.g.cs
 C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\DeleteTaskWindow.baml
 C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\DeleteTaskWindow.g.cs
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\kanbanboard_MarkupCompile.lref
+C:\Users\Dawid\Documents\GitHub\KanbanBoard_DawidGrad_KrzysztofKandora\kanbanboard\obj\Debug\net8.0-windows\App.baml

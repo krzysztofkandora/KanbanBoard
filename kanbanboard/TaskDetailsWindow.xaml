@@ -5,9 +5,13 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <!-- Tytuł -->
             <RowDefinition Height="Auto" />
+            <!-- Użytkownik -->
             <RowDefinition Height="Auto" />
+            <!-- Status -->
             <RowDefinition Height="*" />
+            <!-- Opis -->
         </Grid.RowDefinitions>
 
         <!-- Tytuł zadania -->
@@ -16,14 +20,14 @@
 
         <!-- Użytkownik -->
         <TextBlock Text="Przypisano do:" Grid.Row="1" FontWeight="Bold" />
-        <TextBlock x:Name="AssignedUserTextBlock" Grid.Row="2" Margin="100,0,0,0" />
+        <TextBlock x:Name="AssignedUserTextBlock" Grid.Row="1" Margin="100,0,0,0" />
 
         <!-- Status -->
         <TextBlock Text="Status:" Grid.Row="2" FontWeight="Bold" />
-        <TextBlock x:Name="StatusTextBlock" Grid.Row="3" Margin="100,0,0,0" />
+        <TextBlock x:Name="StatusTextBlock" Grid.Row="2" Margin="100,0,0,0" />
 
         <!-- Opis zadania -->
         <TextBlock Text="Opis:" Grid.Row="3" FontWeight="Bold" />
-        <TextBlock x:Name="TaskDescriptionTextBlock" Grid.Row="1" Margin="100,0,0,0" TextWrapping="Wrap" />
+        <TextBlock x:Name="TaskDescriptionTextBlock" Grid.Row="3" Margin="100,0,0,0" TextWrapping="Wrap" />
     </Grid>
 </Window>

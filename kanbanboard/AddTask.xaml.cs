@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace kanbanboard
 {
-    public partial class AddTaskWindow : Window
+    public partial class AddTaskWindow : Window, LuSchZadania
     {
         private KanbanDbContext _dbContext;
         public Karta NewTask { get; private set; }
+
         public AddTaskWindow()
         {
             InitializeComponent();
@@ -16,13 +18,13 @@ namespace kanbanboard
             StatusComboBox.SelectedIndex = 0; // Ustaw domyślny status
         }
 
-        private void LoadUsers()
+        public void LoadUsers()
         {
             var users = _dbContext.users.ToList();
             UserComboBox.ItemsSource = users;
         }
 
-        private void AddTaskButton_Click(object sender, RoutedEventArgs e)
+        public void SaveChanges()
         {
             var selectedUser = UserComboBox.SelectedItem as Uzytkownik;
             var selectedStatus = (StatusComboBox.SelectedItem as ComboBoxItem)?.Tag.ToString();
@@ -42,9 +44,17 @@ namespace kanbanboard
                 Status = selectedStatus
             };
 
-            DialogResult = true; // Ustaw wartość zwracaną okna na true
+            _dbContext.Zadania.Add(NewTask);
+            _dbContext.SaveChanges();
+
+            MessageBox.Show("Zadanie zostało dodane!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+            DialogResult = true;
             this.Close();
         }
 
+        private void AddTaskButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveChanges();
+        }
     }
 }
