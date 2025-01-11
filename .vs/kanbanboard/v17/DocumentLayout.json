@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\edittaskwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\addtask.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\addtask.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\deletetaskwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,20 +27,20 @@
       "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\deletetaskwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\addtask.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\addtask.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\taskdetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\taskdetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\taskdetailswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\taskdetailswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\taskdetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\taskdetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|solutionrelative:kanbanboard\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EAC8040A-7874-45B5-B813-FCC022349544}|kanbanboard\\kanbanboard.csproj|c:\\users\\dawid\\documents\\github\\kanbanboard_dawidgrad_krzysztofkandora\\kanbanboard\\addtask.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -62,7 +62,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\MainWindow.xaml",
               "RelativeDocumentMoniker": "kanbanboard\\MainWindow.xaml",
@@ -85,7 +85,7 @@
               "RelativeDocumentMoniker": "kanbanboard\\EditTaskWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\EditTaskWindow.xaml.cs",
               "RelativeToolTip": "kanbanboard\\EditTaskWindow.xaml.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAUwEwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowEkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-11T16:17:41.008Z",
               "EditorCaption": ""
@@ -98,27 +98,27 @@
               "RelativeDocumentMoniker": "kanbanboard\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\MainWindow.xaml.cs",
               "RelativeToolTip": "kanbanboard\\MainWindow.xaml.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAuwCoAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAYwJ0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-11T16:05:23.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\App.xaml.cs",
               "RelativeDocumentMoniker": "kanbanboard\\App.xaml.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\App.xaml.cs",
               "RelativeToolTip": "kanbanboard\\App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-11T15:40:32.757Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "TaskDetailsWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\TaskDetailsWindow.xaml.cs",
               "RelativeDocumentMoniker": "kanbanboard\\TaskDetailsWindow.xaml.cs",
@@ -131,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "TaskDetailsWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\TaskDetailsWindow.xaml",
               "RelativeDocumentMoniker": "kanbanboard\\TaskDetailsWindow.xaml",
@@ -143,13 +143,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "AddTask.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\AddTask.xaml.cs",
               "RelativeDocumentMoniker": "kanbanboard\\AddTask.xaml.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\AddTask.xaml.cs",
               "RelativeToolTip": "kanbanboard\\AddTask.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAYwBsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-21T17:41:43.143Z",
               "EditorCaption": ""
@@ -174,14 +174,14 @@
               "RelativeDocumentMoniker": "kanbanboard\\DeleteTaskWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\DeleteTaskWindow.xaml.cs",
               "RelativeToolTip": "kanbanboard\\DeleteTaskWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-21T19:37:35.478Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\GitHub\\KanbanBoard_DawidGrad_KrzysztofKandora\\kanbanboard\\App.xaml",
               "RelativeDocumentMoniker": "kanbanboard\\App.xaml",

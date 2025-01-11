@@ -18,7 +18,7 @@ namespace kanbanboard
         void Execute(object parameter);
     }
 
-    // Base class for task actions, implementing ITaskAction
+  
     public abstract class TaskActionBase : ITaskAction
     {
         protected KanbanDbContext DbContext { get; private set; }
@@ -31,7 +31,6 @@ namespace kanbanboard
         public abstract void Execute(object parameter);
     }
 
-    // AddTask class
     public class AddTask : TaskActionBase
     {
         public override void Execute(object parameter)
@@ -48,7 +47,6 @@ namespace kanbanboard
         }
     }
 
-    // EditTask class
     public class EditTask : TaskActionBase
     {
         public override void Execute(object parameter)
@@ -65,7 +63,6 @@ namespace kanbanboard
         }
     }
 
-    // ShowTaskDetails class
     public class ShowTaskDetails : TaskActionBase
     {
         public override void Execute(object parameter)
@@ -82,7 +79,6 @@ namespace kanbanboard
         }
     }
 
-    // DeleteTask class
     public class DeleteTask : TaskActionBase
     {
         public override void Execute(object parameter)
@@ -92,7 +88,6 @@ namespace kanbanboard
         }
     }
 
-    // MainWindow modifications
     public partial class MainWindow : Window
     {
         private KanbanDbContext _dbContext;

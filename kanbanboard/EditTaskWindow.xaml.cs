@@ -51,9 +51,8 @@ namespace kanbanboard
 
             MessageBox.Show("Zadanie zostało zaktualizowane.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // Ustawienie DialogResult na true, aby poinformować o sukcesie
             DialogResult = true;
-            this.Close(); // Zamknięcie okna
+            this.Close(); 
         }
 
 
@@ -72,7 +71,6 @@ namespace kanbanboard
 
         private void SaveChangesButton_Click(object sender, RoutedEventArgs e)
         {
-            SaveChanges(); // Wywołanie metody z interfejsu
-        }
+            SaveChanges();        }
     }
 }

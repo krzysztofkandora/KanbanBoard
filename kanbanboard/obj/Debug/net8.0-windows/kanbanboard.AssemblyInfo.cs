@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kanbanboard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7148ff099b12f38d7ba74e497e337f02d1d12b6b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+187551074e4b5279b758690afbc3819524d7cc28")]
 [assembly: System.Reflection.AssemblyProductAttribute("kanbanboard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kanbanboard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
