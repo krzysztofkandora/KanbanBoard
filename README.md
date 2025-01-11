@@ -17,7 +17,8 @@ Aplikacja Kanban Board to narzędzie do zarządzania zadaniami, które umożliwi
 ## **Technologie**
 - **Język**: C#  
 - **Interfejs graficzny**: WPF  
-- **Baza danych**: MySQL  
+- **Baza danych**: MySQL
+- **Wykorzystane biblioteki: ** MySQL.Data.EntityFrameworkCore, Microsoft.EntityFrameworkCore 
 
 ## **Do zrobienia**
 - **Logowanie**: Dodanie funkcjonalności umożliwiającej logowanie użytkowników.
