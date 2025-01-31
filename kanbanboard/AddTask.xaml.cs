@@ -7,24 +7,26 @@ namespace kanbanboard
 {
     public partial class AddTaskWindow : Window, LuSchZadania
     {
-        private KanbanDbContext _dbContext;
+        private readonly KanbanDbContext _dbContext;
         public Karta NewTask { get; private set; }
 
-        public AddTaskWindow()
+        public AddTaskWindow(KanbanDbContext dbContext)
         {
             InitializeComponent();
-            _dbContext = new KanbanDbContext();
+            _dbContext = dbContext;
             LoadUsers();
             StatusComboBox.SelectedIndex = 0; // Ustaw domyślny status
         }
+    
 
-        public void LoadUsers()
+
+    public void LoadUsers()
         {
             var users = _dbContext.users.ToList();
             UserComboBox.ItemsSource = users;
         }
 
-        public void SaveChanges()
+    public void SaveChanges()
         {
             var selectedUser = UserComboBox.SelectedItem as Uzytkownik;
             var selectedStatus = (StatusComboBox.SelectedItem as ComboBoxItem)?.Tag.ToString();

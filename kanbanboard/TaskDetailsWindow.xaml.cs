@@ -4,13 +4,17 @@ namespace kanbanboard
 {
     public partial class TaskDetailsWindow : Window
     {
-        public TaskDetailsWindow(Karta selectedTask)
+        private readonly KanbanDbContext _dbContext;
+
+        public TaskDetailsWindow(Karta selectedTask, KanbanDbContext dbContext)
         {
             InitializeComponent();
+            _dbContext = dbContext;
             DisplayTaskDetails(selectedTask);
         }
 
-        private void DisplayTaskDetails(Karta task)
+
+    private void DisplayTaskDetails(Karta task)
         {
             TaskTitleTextBlock.Text = task.title;
             AssignedUserTextBlock.Text = task.assigned_user;

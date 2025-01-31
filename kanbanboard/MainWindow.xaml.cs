@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using kanbanboard;
 using Microsoft.EntityFrameworkCore;
 
 namespace kanbanboard
@@ -18,75 +19,78 @@ namespace kanbanboard
         void Execute(object parameter);
     }
 
-  
+
     public abstract class TaskActionBase : ITaskAction
     {
-        protected KanbanDbContext DbContext { get; private set; }
+        protected KanbanDbContext DbContext { get; }
 
-        public TaskActionBase()
+        public TaskActionBase(KanbanDbContext dbContext)
         {
-            DbContext = new KanbanDbContext();
+            DbContext = dbContext;
         }
 
         public abstract void Execute(object parameter);
     }
 
-    public class AddTask : TaskActionBase
+
+public class AddTask : TaskActionBase
+{
+    public AddTask(KanbanDbContext dbContext) : base(dbContext) { }
+
+    public override void Execute(object parameter)
     {
-        public override void Execute(object parameter)
+        var addTaskWindow = new AddTaskWindow(DbContext);
+        if (addTaskWindow.ShowDialog() == true)
         {
-            var addTaskWindow = new AddTaskWindow();
-            if (addTaskWindow.ShowDialog() == true)
-            {
-                var newTask = addTaskWindow.NewTask;
-                if (newTask != null)
-                {
-                    DbContext.Zadania.Add(newTask);
-                }
-            }
+            var newTask = addTaskWindow.NewTask;
         }
     }
+}
+
 
     public class EditTask : TaskActionBase
     {
+        public EditTask(KanbanDbContext dbContext) : base(dbContext) { }
+
         public override void Execute(object parameter)
         {
             if (parameter is Karta task)
             {
-                var editTaskWindow = new EditTaskWindow(task);
-                editTaskWindow.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Nie wybrano zadania do edycji.");
+                var editTaskWindow = new EditTaskWindow(task, DbContext);
+                if (editTaskWindow.ShowDialog() == true)
+                {
+                    DbContext.SaveChanges();
+                }
             }
         }
     }
 
     public class ShowTaskDetails : TaskActionBase
     {
+        public ShowTaskDetails(KanbanDbContext dbContext) : base(dbContext) { }
+
         public override void Execute(object parameter)
         {
             if (parameter is Karta selectedTask)
             {
-                var taskDetailsWindow = new TaskDetailsWindow(selectedTask);
+                var taskDetailsWindow = new TaskDetailsWindow(selectedTask, DbContext);
                 taskDetailsWindow.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Nie udało się otworzyć szczegółów zadania.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
 
+
     public class DeleteTask : TaskActionBase
     {
+        public DeleteTask(KanbanDbContext dbContext) : base(dbContext) { }
+
         public override void Execute(object parameter)
         {
-            var deleteTaskWindow = new DeleteTaskWindow();
+            var deleteTaskWindow = new DeleteTaskWindow(DbContext);
             deleteTaskWindow.ShowDialog();
         }
     }
+
 
     public partial class MainWindow : Window
     {
@@ -120,29 +124,32 @@ namespace kanbanboard
             LoadKanbanData();
         }
 
-        private void AddTask_Click(object sender, RoutedEventArgs e)
-        {
-            ExecuteTaskAction(new AddTask());
-        }
+    private void AddTask_Click(object sender, RoutedEventArgs e)
+    {
+        ExecuteTaskAction(new AddTask(_dbContext));
+    }
+
 
         private void EditTask_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var task = button?.DataContext as Karta;
-            ExecuteTaskAction(new EditTask(), task);
+            ExecuteTaskAction(new EditTask(_dbContext), task);
         }
 
         private void ShowTaskDetails_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var task = button?.CommandParameter as Karta;
-            ExecuteTaskAction(new ShowTaskDetails(), task);
+            ExecuteTaskAction(new ShowTaskDetails(_dbContext), task);
         }
+
 
         private void DeleteTaskMenu_Click(object sender, RoutedEventArgs e)
         {
-            ExecuteTaskAction(new DeleteTask());
+            ExecuteTaskAction(new DeleteTask(_dbContext));
         }
+
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {

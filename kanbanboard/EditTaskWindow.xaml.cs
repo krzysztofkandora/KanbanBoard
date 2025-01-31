@@ -6,21 +6,20 @@ namespace kanbanboard
 {
     public partial class EditTaskWindow : Window, LuSchZadania
     {
-        private KanbanDbContext _dbContext;
+        private readonly KanbanDbContext _dbContext;
         private Karta taskToEdit;
 
-        public EditTaskWindow(Karta task)
+        public EditTaskWindow(Karta task, KanbanDbContext dbContext)
         {
             InitializeComponent();
-            _dbContext = new KanbanDbContext();
+            _dbContext = dbContext; 
             taskToEdit = task;
 
             LoadUsers();
             PopulateFields();
         }
 
-
-        public void LoadUsers()
+    public void LoadUsers()
         {
             var users = _dbContext.users.ToList();
             UserComboBox.ItemsSource = users;
@@ -32,7 +31,7 @@ namespace kanbanboard
             var selectedUser = UserComboBox.SelectedItem as Uzytkownik;
             var selectedStatus = (StatusComboBox.SelectedItem as ComboBoxItem)?.Tag.ToString();
 
-            // Walidacja danych
+            // Weryfikacja danych
             if (string.IsNullOrWhiteSpace(TaskTitleTextBox.Text) || selectedUser == null || string.IsNullOrEmpty(selectedStatus))
             {
                 MessageBox.Show("Proszę uzupełnić wszystkie pola.");

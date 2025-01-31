@@ -4,16 +4,17 @@ namespace kanbanboard
 {
     public partial class DeleteTaskWindow : Window
     {
-        private KanbanDbContext _dbContext;
+        private readonly KanbanDbContext _dbContext;
 
-        public DeleteTaskWindow()
+        public DeleteTaskWindow(KanbanDbContext dbContext)
         {
             InitializeComponent();
-            _dbContext = new KanbanDbContext();
+            _dbContext = dbContext; 
             LoadTasks();
         }
 
-        private void LoadTasks()
+
+    private void LoadTasks()
         {
             // Załaduj zadania do ListBox
             var tasks = _dbContext.Zadania.ToList();
